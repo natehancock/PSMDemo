@@ -7,23 +7,53 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		335B091927581D9800DCB762 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335B091827581D9800DCB762 /* App.swift */; };
+		335B091B27581F5F00DCB762 /* NavigationCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335B091A27581F5F00DCB762 /* NavigationCommand.swift */; };
+		335B091D2758217F00DCB762 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335B091C2758217F00DCB762 /* Environment.swift */; };
+		335B091F2758239500DCB762 /* NavigationCommandProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335B091E2758239500DCB762 /* NavigationCommandProcessor.swift */; };
+		335B09212758291E00DCB762 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335B09202758291E00DCB762 /* UIView+Ext.swift */; };
+		335B09232758298500DCB762 /* BluetoothCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335B09222758298500DCB762 /* BluetoothCommand.swift */; };
+		335B09252758298E00DCB762 /* BluetoothCommandProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335B09242758298E00DCB762 /* BluetoothCommandProcessor.swift */; };
+		335B09292758315C00DCB762 /* BluetoothScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335B09282758315C00DCB762 /* BluetoothScanner.swift */; };
+		335B092E2758679200DCB762 /* ConcurrentReadAgent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335B092D2758679200DCB762 /* ConcurrentReadAgent.swift */; };
+		335B0930275867B200DCB762 /* ActorReadAgent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335B092F275867B200DCB762 /* ActorReadAgent.swift */; };
 		336529CE2757F508002634CA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336529CD2757F508002634CA /* AppDelegate.swift */; };
 		336529D02757F508002634CA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336529CF2757F508002634CA /* SceneDelegate.swift */; };
 		336529D22757F508002634CA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336529D12757F508002634CA /* ViewController.swift */; };
-		336529D52757F508002634CA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 336529D32757F508002634CA /* Main.storyboard */; };
 		336529D72757F50A002634CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 336529D62757F50A002634CA /* Assets.xcassets */; };
 		336529DA2757F50A002634CA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 336529D82757F50A002634CA /* LaunchScreen.storyboard */; };
+		336529E22757F548002634CA /* Core.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336529E12757F548002634CA /* Core.swift */; };
+		336529E62757F6B7002634CA /* Agent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336529E52757F6B7002634CA /* Agent.swift */; };
+		336529E82757F712002634CA /* Actor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336529E72757F712002634CA /* Actor.swift */; };
+		336529EA2757F755002634CA /* PureStateMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336529E92757F755002634CA /* PureStateMachine.swift */; };
+		33C9EDA42759B9CF0082656E /* DiscoveredPeripheral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C9EDA32759B9CF0082656E /* DiscoveredPeripheral.swift */; };
+		33C9EDAA2759E1D70082656E /* BluetoothScannerCommandProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C9EDA92759E1D70082656E /* BluetoothScannerCommandProcessor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		335B091827581D9800DCB762 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
+		335B091A27581F5F00DCB762 /* NavigationCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationCommand.swift; sourceTree = "<group>"; };
+		335B091C2758217F00DCB762 /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
+		335B091E2758239500DCB762 /* NavigationCommandProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationCommandProcessor.swift; sourceTree = "<group>"; };
+		335B09202758291E00DCB762 /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
+		335B09222758298500DCB762 /* BluetoothCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothCommand.swift; sourceTree = "<group>"; };
+		335B09242758298E00DCB762 /* BluetoothCommandProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothCommandProcessor.swift; sourceTree = "<group>"; };
+		335B09282758315C00DCB762 /* BluetoothScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothScanner.swift; sourceTree = "<group>"; };
+		335B092D2758679200DCB762 /* ConcurrentReadAgent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcurrentReadAgent.swift; sourceTree = "<group>"; };
+		335B092F275867B200DCB762 /* ActorReadAgent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActorReadAgent.swift; sourceTree = "<group>"; };
 		336529CA2757F508002634CA /* StateMachineDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StateMachineDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		336529CD2757F508002634CA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		336529CF2757F508002634CA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		336529D12757F508002634CA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		336529D42757F508002634CA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		336529D62757F50A002634CA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		336529D92757F50A002634CA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		336529DB2757F50A002634CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		336529E12757F548002634CA /* Core.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Core.swift; sourceTree = "<group>"; };
+		336529E52757F6B7002634CA /* Agent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Agent.swift; sourceTree = "<group>"; };
+		336529E72757F712002634CA /* Actor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Actor.swift; sourceTree = "<group>"; };
+		336529E92757F755002634CA /* PureStateMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PureStateMachine.swift; sourceTree = "<group>"; };
+		33C9EDA32759B9CF0082656E /* DiscoveredPeripheral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoveredPeripheral.swift; sourceTree = "<group>"; };
+		33C9EDA92759E1D70082656E /* BluetoothScannerCommandProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothScannerCommandProcessor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +86,46 @@
 		336529CC2757F508002634CA /* StateMachineDemo */ = {
 			isa = PBXGroup;
 			children = (
-				336529CD2757F508002634CA /* AppDelegate.swift */,
-				336529CF2757F508002634CA /* SceneDelegate.swift */,
-				336529D12757F508002634CA /* ViewController.swift */,
-				336529D32757F508002634CA /* Main.storyboard */,
-				336529D62757F50A002634CA /* Assets.xcassets */,
-				336529D82757F50A002634CA /* LaunchScreen.storyboard */,
 				336529DB2757F50A002634CA /* Info.plist */,
+				33C9EDA52759D5B20082656E /* PureStateMachine */,
+				33C9EDA62759D5F20082656E /* Resources */,
+				336529D12757F508002634CA /* ViewController.swift */,
+				335B091C2758217F00DCB762 /* Environment.swift */,
+				335B091827581D9800DCB762 /* App.swift */,
+				335B091A27581F5F00DCB762 /* NavigationCommand.swift */,
+				335B091E2758239500DCB762 /* NavigationCommandProcessor.swift */,
+				335B09222758298500DCB762 /* BluetoothCommand.swift */,
+				335B09242758298E00DCB762 /* BluetoothCommandProcessor.swift */,
+				335B09282758315C00DCB762 /* BluetoothScanner.swift */,
+				33C9EDA92759E1D70082656E /* BluetoothScannerCommandProcessor.swift */,
+				33C9EDA32759B9CF0082656E /* DiscoveredPeripheral.swift */,
+				335B09202758291E00DCB762 /* UIView+Ext.swift */,
 			);
 			path = StateMachineDemo;
+			sourceTree = "<group>";
+		};
+		33C9EDA52759D5B20082656E /* PureStateMachine */ = {
+			isa = PBXGroup;
+			children = (
+				336529E12757F548002634CA /* Core.swift */,
+				336529E52757F6B7002634CA /* Agent.swift */,
+				335B092D2758679200DCB762 /* ConcurrentReadAgent.swift */,
+				336529E72757F712002634CA /* Actor.swift */,
+				335B092F275867B200DCB762 /* ActorReadAgent.swift */,
+				336529E92757F755002634CA /* PureStateMachine.swift */,
+			);
+			path = PureStateMachine;
+			sourceTree = "<group>";
+		};
+		33C9EDA62759D5F20082656E /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				336529CD2757F508002634CA /* AppDelegate.swift */,
+				336529CF2757F508002634CA /* SceneDelegate.swift */,
+				336529D62757F50A002634CA /* Assets.xcassets */,
+				336529D82757F50A002634CA /* LaunchScreen.storyboard */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -127,7 +188,6 @@
 			files = (
 				336529DA2757F50A002634CA /* LaunchScreen.storyboard in Resources */,
 				336529D72757F50A002634CA /* Assets.xcassets in Resources */,
-				336529D52757F508002634CA /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -139,22 +199,30 @@
 			buildActionMask = 2147483647;
 			files = (
 				336529D22757F508002634CA /* ViewController.swift in Sources */,
+				33C9EDA42759B9CF0082656E /* DiscoveredPeripheral.swift in Sources */,
+				335B091D2758217F00DCB762 /* Environment.swift in Sources */,
 				336529CE2757F508002634CA /* AppDelegate.swift in Sources */,
+				336529E22757F548002634CA /* Core.swift in Sources */,
+				335B09212758291E00DCB762 /* UIView+Ext.swift in Sources */,
+				335B091F2758239500DCB762 /* NavigationCommandProcessor.swift in Sources */,
+				335B091927581D9800DCB762 /* App.swift in Sources */,
+				336529EA2757F755002634CA /* PureStateMachine.swift in Sources */,
+				336529E82757F712002634CA /* Actor.swift in Sources */,
+				33C9EDAA2759E1D70082656E /* BluetoothScannerCommandProcessor.swift in Sources */,
+				335B09232758298500DCB762 /* BluetoothCommand.swift in Sources */,
+				336529E62757F6B7002634CA /* Agent.swift in Sources */,
+				335B091B27581F5F00DCB762 /* NavigationCommand.swift in Sources */,
+				335B0930275867B200DCB762 /* ActorReadAgent.swift in Sources */,
+				335B09292758315C00DCB762 /* BluetoothScanner.swift in Sources */,
 				336529D02757F508002634CA /* SceneDelegate.swift in Sources */,
+				335B092E2758679200DCB762 /* ConcurrentReadAgent.swift in Sources */,
+				335B09252758298E00DCB762 /* BluetoothCommandProcessor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		336529D32757F508002634CA /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				336529D42757F508002634CA /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		336529D82757F50A002634CA /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -294,7 +362,6 @@
 				INFOPLIST_FILE = StateMachineDemo/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -322,7 +389,6 @@
 				INFOPLIST_FILE = StateMachineDemo/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
