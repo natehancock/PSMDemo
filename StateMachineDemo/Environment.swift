@@ -16,7 +16,6 @@ final class Environment {
         
         // Set up all Command Processors
         let navigationProcessor = NavigationCommandProcessor<App.State, App.Event, App.Command>(window)
-//        let bluetoothProcessor = BluetoothCommandProcessor(BluetoothScanner())
         
         // pass into App
         app = App([navigationProcessor.commandProcessor])
