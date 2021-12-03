@@ -16,13 +16,10 @@ final class Environment {
         
         // Set up all Command Processors
         let navigationProcessor = NavigationCommandProcessor<App.State, App.Event, App.Command>(window)
-        let bluetoothProcessor = BluetoothCommandProcessor(BluetoothScanner())
+//        let bluetoothProcessor = BluetoothCommandProcessor(BluetoothScanner())
         
         // pass into App
-        app = App([navigationProcessor.commandProcessor, bluetoothProcessor.commandProcessor])
-        bluetoothProcessor.scanner.scanner.stateChanged.sink { [unowned self] bluetoothState in
-//            app.core.fire(event: .didDiscoverPeripheral(<#T##DiscoveredPeripheral#>))
-        }
+        app = App([navigationProcessor.commandProcessor])
     }
     
     public func start() {

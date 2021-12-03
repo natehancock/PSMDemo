@@ -24,19 +24,22 @@ class ViewController: UIViewController {
         return button
     }()
     
+    private let _core: App.AppCore
+    
     // Store any .sink in here
     var subscriptions = Set<AnyCancellable>()
     
     init(_ core: App.AppCore) {
+        self._core = core
         super.init(nibName: nil, bundle: nil)
 
         // Subscribe to changes on the State
-        core.stateChanged
-            .receive(on: DispatchQueue.main, options: .none)
-            .sink { [unowned self] updatedState in
-                self.handleUpdate(updatedState)
-            }
-            .store(in: &subscriptions)
+//        core.stateChanged
+//            .receive(on: DispatchQueue.main, options: .none)
+//            .sink { [unowned self] updatedState in
+//                self.handleUpdate(updatedState)
+//            }
+//            .store(in: &subscriptions)
         
         configureLayout()
         
@@ -53,8 +56,8 @@ class ViewController: UIViewController {
     }
     
     private func handleUpdate(_ updatedState: App.State) {
-        print("Handle Update")
-        print(updatedState.peripherals.map { $0.name })
+//        print("Handle Update")
+//        print(updatedState.peripherals.map { $0.name })
     }
 
     func configureLayout() {
@@ -68,6 +71,6 @@ class ViewController: UIViewController {
 
 extension ViewController {
     @objc func didTapButton(_ sender: UIButton) {
-        
+        _core.perform(command: .navigation(.push(.peripheralViewController(_core))))
     }
 }

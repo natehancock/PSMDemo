@@ -9,5 +9,7 @@ import Foundation
 import UIKit
 
 enum NavigationCommand<Event, Command> {
-    case replaceWindow(UIViewController)
+    case replaceWindow(UINavigationController)
+    case push(UIViewController)
+    case present(UIViewController)
 }

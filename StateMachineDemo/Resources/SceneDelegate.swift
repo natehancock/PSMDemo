@@ -22,7 +22,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let environment = Environment(window: self.window ?? UIWindow(frame: UIScreen.main.bounds))
         
         environment.start()
-        
+        self.environment = environment
         window?.makeKeyAndVisible()
         guard let _ = (scene as? UIWindowScene) else { return }
     }

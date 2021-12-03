@@ -16,8 +16,11 @@ final class BluetoothScannerCommandProcessor {
     
     private let _manager: CBCentralManager
     
+    private var _timer: Timer
+    
     init(_ centralManager: CBCentralManager) {
         self._manager = centralManager
+        self._timer = Timer()
     }
     // Takes in core and a command.
     func commandProcessor(core: Core<State, Event, Command>, cmd: Command) {
@@ -25,9 +28,10 @@ final class BluetoothScannerCommandProcessor {
         switch cmd {
         case .connect(let device):
             break
-//            core.fire(event: )
-        case .searchForDevices:
-            _manager.scanForPeripherals(withServices: nil)
+        case .start:
+            core.fire(event: .discoveredPeripheral(DiscoveredPeripheral.random()))
+        case .stop:
+            _timer.invalidate()
         }
     }
 }

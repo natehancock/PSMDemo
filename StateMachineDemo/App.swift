@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import Combine
 
 final class App {
     typealias AppCore = Core<State, Event, Command>
@@ -14,40 +15,43 @@ final class App {
     
     let core: AppCore
     
+    let bluetoothScanner = BluetoothScanner()
+    var subscriptions = Set<AnyCancellable>()
     
     init(_ processors: [CommandProcessor]) {
-        core = AppCore(initialState: .init([:]), commandProcessors: processors, eventHandler: App.handleEvent)
+
+        let bluetoothProcessor = BluetoothCommandProcessor(self.bluetoothScanner)
+        
+        core = AppCore(initialState: .init([:]), commandProcessors: [bluetoothProcessor.commandProcessor] + processors, eventHandler: App.handleEvent)
+        
+        self.bluetoothScanner.stateMachine.stateChanged
+            .receive(on: DispatchQueue.main, options: .none)
+            .sink { updatedState in
+                self.handleBluetoothScannerUpdate(updatedState)
+            }
+            .store(in: &subscriptions)
     }
     
     func start() {
-        let startVC = ViewController(core)
-        core.perform(command: .navigation(.replaceWindow(startVC)))
+        let startNavVC = UINavigationController(rootViewController: ViewController(core))
+        core.perform(command: .navigation(.replaceWindow(startNavVC)))
         core.fire(event: .login(["UserName": "Mo"]))
     }
     
-    // Takes in event and updates the state. Returns update This is where the business logic occurs
+    // Takes in event and updates the state. This is where we mutate the state. 
     private static func handleEvent(state: App.State, event: App.Event) -> StateUpdate<App.State, App.Command> {
-        
         
         switch (state, event) {
         case (_, .login(let userDict)):
             print(userDict)
             var currentState = state
             currentState.user = userDict
-            return .StateAndCommands(currentState, [.bluetoothCommand(.searchForPeripherals)])
+            return .State(currentState)
             
-        case (_, .didDiscoverPeripheral(let peripheral)):
-            
+        case (_, .didDiscoverPeripherals(let peripherals)):
             var currentState = state
-            var peripherals = currentState.peripherals
-            
-            if !peripherals.contains(where: { $0.name == peripheral.name }) {
-                peripherals.append(peripheral)
-                currentState.peripherals = peripherals
-                return .State(currentState)
-            }
-            return .NoUpdate
-
+            currentState.peripherals = peripherals
+            return .State(currentState)
         }
     }
     
@@ -62,11 +66,17 @@ final class App {
     
     enum Event {
         case login([String: Any])
-        case didDiscoverPeripheral(DiscoveredPeripheral)
+        case didDiscoverPeripherals([DiscoveredPeripheral])
     }
     
     enum Command {
         case navigation(NavigationCommand<Event, Command>)
         case bluetoothCommand(BluetoothCommand)
+    }
+}
+
+extension App {
+    func handleBluetoothScannerUpdate(_ update: BluetoothScanner.State) {
+        core.fire(event: .didDiscoverPeripherals(update.discoveredPeripherals))
     }
 }

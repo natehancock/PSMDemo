@@ -7,32 +7,32 @@
 
 import Foundation
 import CoreBluetooth
+import Combine
 
 class BluetoothScanner: NSObject {
     typealias Scanner = Core<State, Event, Command>
     typealias CommandProcessor = Scanner.CommandProcessor
     
-    public var scanner: Scanner {
-        return _scanner
+    public var stateMachine: Scanner {
+        return _stateMachine
     }
-    private let centralManager: CBCentralManager = CBCentralManager()
-    private var _scanner: Scanner
     
-    var handler: ((DiscoveredPeripheral) -> ())?
+    private var _stateMachine: Scanner
+    
+    private let centralManager: CBCentralManager = CBCentralManager()
     
     public override init() {
         let processor = BluetoothScannerCommandProcessor(centralManager)
-        _scanner = Scanner(initialState: .init(), commandProcessors: [processor.commandProcessor], eventHandler: BluetoothScanner.handleEvent)
+        
+        _stateMachine = Scanner(initialState: .init(), commandProcessors: [processor.commandProcessor], eventHandler: BluetoothScanner.handleEvent)
         
         super.init()
+        
     }
     
-    
-//    func startScan() {
-//        _ = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { t in
-//            self.handler?(self.randomPeripheral())
-//        }
-//    }
+    deinit {
+        print("deinit - BluetoothScanner")
+    }
     
     // Takes in event and updates the state. Returns update This is where the business logic occurs
     private static func handleEvent(state: BluetoothScanner.State, event: BluetoothScanner.Event) -> StateUpdate<BluetoothScanner.State, BluetoothScanner.Command> {
@@ -43,7 +43,7 @@ class BluetoothScanner: NSObject {
         case .bluetoothConnected:
             var newState = state
             newState.isBluetoothEnabled = true
-            return .StateAndCommands(newState, [.searchForDevices])
+            return .StateAndCommands(newState, [.start])
             
         case .bluetoothDisconnected:
             var newState = state
@@ -55,9 +55,20 @@ class BluetoothScanner: NSObject {
             newState.discoveredPeripherals = [device]
             return .State(newState)
             
-        default:
-            return .NoUpdate
+        case .discoveredPeripheral(let discoveredPeripheral):
+            var peripherals = state.discoveredPeripherals
+            var newState = state
             
+            // Check for new peripheral
+            if !peripherals.contains(where: { $0.name == discoveredPeripheral.name }) {
+                // new peripheral discovered - update state
+                peripherals.append(discoveredPeripheral)
+                newState.discoveredPeripherals = peripherals
+                // return new state
+                return .StateAndCommands(newState, [.stop])
+            }
+            // not a new peripheral - dont update state
+            return .NoUpdate
         }
     }
     
@@ -70,33 +81,26 @@ class BluetoothScanner: NSObject {
         case bluetoothConnected
         case bluetoothDisconnected
         case didConnectDevice(DiscoveredPeripheral)
+        case discoveredPeripheral(DiscoveredPeripheral)
     }
     
     enum Command {
         case connect(DiscoveredPeripheral)
-        case searchForDevices
+        case start
+        case stop
     }
 }
 
 extension BluetoothScanner: CBCentralManagerDelegate {
     func centralManagerDidUpdateState(_ central: CBCentralManager) {
         if central.state == .poweredOn {
-            _scanner.fire(event: .bluetoothConnected)
+            _stateMachine.fire(event: .bluetoothConnected)
         } else {
-            _scanner.fire(event: .bluetoothDisconnected)
+            _stateMachine.fire(event: .bluetoothDisconnected)
         }
     }
 }
 
 
 extension BluetoothScanner {
-    private func randomPeripheral() -> DiscoveredPeripheral {
-        let peripheral = DiscoveredPeripheral(name: randomString(length: 5))
-        return peripheral
-    }
-
-    private func randomString(length: Int) -> String {
-        let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-        return String((0..<length).map{ _ in letters.randomElement()! })
-    }
 }

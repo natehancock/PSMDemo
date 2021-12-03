@@ -28,6 +28,8 @@
 		336529EA2757F755002634CA /* PureStateMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336529E92757F755002634CA /* PureStateMachine.swift */; };
 		33C9EDA42759B9CF0082656E /* DiscoveredPeripheral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C9EDA32759B9CF0082656E /* DiscoveredPeripheral.swift */; };
 		33C9EDAA2759E1D70082656E /* BluetoothScannerCommandProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C9EDA92759E1D70082656E /* BluetoothScannerCommandProcessor.swift */; };
+		33C9EDAC275A896E0082656E /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C9EDAB275A896E0082656E /* UIViewController+Ext.swift */; };
+		33C9EDAE275A89C10082656E /* PeripheralViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C9EDAD275A89C10082656E /* PeripheralViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +56,8 @@
 		336529E92757F755002634CA /* PureStateMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PureStateMachine.swift; sourceTree = "<group>"; };
 		33C9EDA32759B9CF0082656E /* DiscoveredPeripheral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoveredPeripheral.swift; sourceTree = "<group>"; };
 		33C9EDA92759E1D70082656E /* BluetoothScannerCommandProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothScannerCommandProcessor.swift; sourceTree = "<group>"; };
+		33C9EDAB275A896E0082656E /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
+		33C9EDAD275A89C10082656E /* PeripheralViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeripheralViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +94,7 @@
 				33C9EDA52759D5B20082656E /* PureStateMachine */,
 				33C9EDA62759D5F20082656E /* Resources */,
 				336529D12757F508002634CA /* ViewController.swift */,
+				33C9EDAD275A89C10082656E /* PeripheralViewController.swift */,
 				335B091C2758217F00DCB762 /* Environment.swift */,
 				335B091827581D9800DCB762 /* App.swift */,
 				335B091A27581F5F00DCB762 /* NavigationCommand.swift */,
@@ -100,6 +105,7 @@
 				33C9EDA92759E1D70082656E /* BluetoothScannerCommandProcessor.swift */,
 				33C9EDA32759B9CF0082656E /* DiscoveredPeripheral.swift */,
 				335B09202758291E00DCB762 /* UIView+Ext.swift */,
+				33C9EDAB275A896E0082656E /* UIViewController+Ext.swift */,
 			);
 			path = StateMachineDemo;
 			sourceTree = "<group>";
@@ -200,6 +206,7 @@
 			files = (
 				336529D22757F508002634CA /* ViewController.swift in Sources */,
 				33C9EDA42759B9CF0082656E /* DiscoveredPeripheral.swift in Sources */,
+				33C9EDAC275A896E0082656E /* UIViewController+Ext.swift in Sources */,
 				335B091D2758217F00DCB762 /* Environment.swift in Sources */,
 				336529CE2757F508002634CA /* AppDelegate.swift in Sources */,
 				336529E22757F548002634CA /* Core.swift in Sources */,
@@ -207,6 +214,7 @@
 				335B091F2758239500DCB762 /* NavigationCommandProcessor.swift in Sources */,
 				335B091927581D9800DCB762 /* App.swift in Sources */,
 				336529EA2757F755002634CA /* PureStateMachine.swift in Sources */,
+				33C9EDAE275A89C10082656E /* PeripheralViewController.swift in Sources */,
 				336529E82757F712002634CA /* Actor.swift in Sources */,
 				33C9EDAA2759E1D70082656E /* BluetoothScannerCommandProcessor.swift in Sources */,
 				335B09232758298500DCB762 /* BluetoothCommand.swift in Sources */,

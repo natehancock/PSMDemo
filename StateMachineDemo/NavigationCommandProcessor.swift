@@ -10,6 +10,10 @@ import UIKit
 final class NavigationCommandProcessor<State, Event, Command> {
     private let window: UIWindow
     
+    private var navigationController: UINavigationController? {
+        return window.rootViewController as? UINavigationController
+    }
+    
     init(_ window: UIWindow) {
         self.window = window
     }
@@ -22,6 +26,12 @@ final class NavigationCommandProcessor<State, Event, Command> {
             switch command {
             case .replaceWindow(let rootViewController):
                 self.window.rootViewController = rootViewController
+                
+            case .push(let viewController):
+                self.navigationController?.pushViewController(viewController, animated: true)
+                
+            case .present(let viewController):
+                self.navigationController?.present(viewController, animated: true, completion: nil)
             }
         }
     }

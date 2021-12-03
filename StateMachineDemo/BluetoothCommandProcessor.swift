@@ -13,8 +13,17 @@ final class BluetoothCommandProcessor {
     let scanner: BluetoothScanner
     private var subscriptions = Set<AnyCancellable>()
     
+    private var peripherals: [DiscoveredPeripheral] = []
+    
     init(_ scanner: BluetoothScanner) {
         self.scanner = scanner
+        
+//        self.scanner.stateMachine.stateChanged
+//            .receive(on: DispatchQueue.main, options: .none)
+//            .sink { [unowned self] updatedState in
+//                self.handleUpdate(updatedState)
+//            }
+//            .store(in: &subscriptions)
     }
     
     // Takes in core and a command.
@@ -25,11 +34,11 @@ final class BluetoothCommandProcessor {
         
         switch command {
         case .searchForPeripherals:
-            scanner.scanner.perform(command: .searchForDevices)
-//            scanner.startScan()
-//            self.scanner.handler = { discoveredPeripherals in
-//                core.fire(event: .didDiscoverPeripheral(discoveredPeripherals))
-//            }
+            scanner.stateMachine.perform(command: .start)
         }
     }
+//
+//    private func handleUpdate(_ updatedState: BluetoothScanner.State) {
+//
+//    }
 }
